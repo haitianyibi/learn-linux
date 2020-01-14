@@ -6,13 +6,13 @@
 
 # linux命令
 
-运行环境MINGW64/bash
+shell-GUN bash
 
-显示$并|光标闪缩表示正在命令模式
+需要一些shell知识
 
 # 一、文件管理
 
-## cat(Concatenate)
+### cat(Concatenate)
 
 ```
 $ cat --help
@@ -39,21 +39,32 @@ With no FILE, or when FILE is -, read standard input.
 
 其中 -AbeEnstTuv指所有选项
 
-注意：文件需要文件名和文件类型，如：a.txt
+注意：文件需要文件名和文件类型，如：a.txt，命令和字符、选项之间要有空格
 
-### 使用echo创建文件
+使用echo创建文件
 
-echo是shell的命令不是linux的命令
+echo是shell的命令不是linux的命令，如同cd等命令
 
-### 使用cat查看文件内容
-
-假设当前目录a.txt文件内容为
+echo向shell输出后面的字符
 
 ```
-
+$ echo 123
+123
 ```
 
+echo将内容覆盖的写入文件中并添加换行符lf，文件原有内容将会丢失，若本目录下没有该文件将自动创建文件
 
+```
+$ echo 1 > a.txt
+```
+
+echo将内容追加到文件末尾，并添加换行符lf换行符
+
+```
+$ echo a >> a.txt
+```
+
+使用cat查看文件内容，遇到lf会换行，windows记事本遇到crlf及回车加换行才会换行，移到lf会显示不出来，只是光标能够感知，可以删除lf，建议使用notepad++打开和shell显示一致。
 
 ```
 $ cat a.txt
@@ -62,7 +73,7 @@ $ cat a.txt
 * 输入命令回车之后在下一行显示文本内容，内容有多少行，相应的就显示多少行，显示完毕后退出到命令模式
 * 需要进入到文件所在的目录才能找到文件
 
-### 查找文件中的内容
+查找文件中的内容
 
 ```
 $ cat a.txt | grep i
